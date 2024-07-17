@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+
 import ProductList from '../components/ProductList'
-import axios from 'axios';
 
 function Home() {
 

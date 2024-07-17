@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Star from './Star'
-function ProductItem({ product }) {
+import { useDispatch, useSelector } from 'react-redux'
+import card, { setCard, deleteItemFromCard, addToCard } from '../redux/card'
+
+function ProductItem({ product, addToCardHandle }) {
+
     return (
         <>
             <li className='product-item col-sm-4 col-md-4 col-3 '>
@@ -15,8 +19,8 @@ function ProductItem({ product }) {
                             <span><b>{product.price} $</b></span>
                         </div>
                         <span className="btnGroup mb-1">
-                            <a href={"/product/" + product.id} className="btn btn-primary w-100 mb-2">View Product</a>
-                            <a href="#" className="btn btn-success w-100 ">Add To Card</a>
+                            <a href={"/product/" + product.id} className="btn btn-primary w-100 mb-2" >View Product</a>
+                            <a href="#" className="btn btn-success w-100 " onClick={addToCardHandle}>Add To Card</a>
                         </span>
                     </div>
                 </div>
