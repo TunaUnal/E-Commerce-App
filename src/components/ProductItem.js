@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import Star from './Star'
 import { useDispatch, useSelector } from 'react-redux'
 import card, { setCard, deleteItemFromCard, addToCard } from '../redux/card'
+import AddToCardBtn from './AddToCardBtn'
 
-function ProductItem({ product, addToCardHandle }) {
+function ProductItem({ product }) {
 
     return (
         <>
@@ -20,7 +21,7 @@ function ProductItem({ product, addToCardHandle }) {
                         </div>
                         <span className="btnGroup mb-1">
                             <a href={"/product/" + product.id} className="btn btn-primary w-100 mb-2" >View Product</a>
-                            <a href="#" className="btn btn-success w-100 " onClick={addToCardHandle}>Add To Card</a>
+                            <AddToCardBtn id={product.id} />
                         </span>
                     </div>
                 </div>

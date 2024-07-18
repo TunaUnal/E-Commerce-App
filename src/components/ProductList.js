@@ -4,24 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCard, deleteItemFromCard, addToCard } from '../redux/card'
 
 function ProductList() {
-
-
+	
+	
 	const dispatch = useDispatch();
-	const card = useSelector((state) => state.card);
+	const card = useSelector(state => state.card);
 
 	const addToCardHandle = (product) => {
-		dispatch(setCard([...card, product]));
+		dispatch(setCard({id:product.id}));
 	};
 
 	useEffect(() => {
-		console.log("updated card: ", card);
+		console.log("updated card: ", card.card);
 	}, [card]);
 
-
-
-
 	const { products } = useSelector((state) => state.products);
-	console.log("prodactus : ", products)
+
 	return (
 		<>
 			<div className="row">
@@ -30,7 +27,7 @@ function ProductList() {
 					<div className=" p-3">
 						<ul className='row list-unstyled'>
 							{products.map((product, i) => (
-								<ProductItem addToCardHandle={addToCardHandle} product={product} key={i} />
+								<ProductItem  product={product} key={i} />
 							))}
 						</ul>
 					</div>

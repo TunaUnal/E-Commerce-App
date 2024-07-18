@@ -7,6 +7,7 @@ import { setProducts } from "./redux/products";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SingleProductPage from './pages/SingleProductPage';
 import Header from './components/Header';
+import Card from './pages/Card';
 
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path:"/product/:id",
     element:<SingleProductPage/>
+  },
+  {
+    path:"/card",
+    element:<Card/>
   }
 ]);
 

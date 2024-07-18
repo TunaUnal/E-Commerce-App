@@ -1,17 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Star from '../components/Star'
+import AddToCardBtnWithCount from '../components/AddToCardBtnWithCount'
 
 export default function SingleProductPage() {
     const { id } = useParams()
     const { products } = useSelector(state => state.products)
+    const { card } = useSelector(state => state.card)
+
+    useEffect(() => {
+        console.log(card)
+    }, [card])
+    
     const product = products.find(p => p.id == id)
 
-
+    useEffect(() => {
+      console.log(product)
+    }, [])
+    
     return (
         <>
-            {console.log(product)}
             {product && <div className="container h-100">
                 <div className="row mt-5">
                     <div className="col-md-6 col-sm-12">
@@ -21,7 +30,6 @@ export default function SingleProductPage() {
                     </div>
                     <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-between">
                         <div className="product-info">
-
                             <h3>{product.title}</h3>
                             <p className="product-description"> {product.description} </p>
                             <p className='mb-0'>{product.category}</p>
@@ -29,15 +37,9 @@ export default function SingleProductPage() {
                             <b className="mb-0 price">
                                 {product.price} $
                             </b>
-
                         </div>
                         <div className="button">
-                            <div className="btn-group mx-3">
-                                <button className="btn btn-primary">-</button>
-                                <button className="btn btn-primary">1</button>
-                                <button className="btn btn-primary">+</button>
-                            </div>
-                            <button className='btn btn-success' >Add to Cart</button>
+                            <AddToCardBtnWithCount id={product.id} />
                         </div>
                     </div>
                 </div>
