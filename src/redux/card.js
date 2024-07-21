@@ -21,7 +21,6 @@ export const cardSlice = createSlice({
             }
         },
         increaseItem: (state, actions) => {
-            console.log(actions.payload)
                 state.card = state.card.map(c => {
                     return c.id == actions.payload.id ? {...c, count:c.count+1} : c
                 }) 

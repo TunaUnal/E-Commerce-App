@@ -4,9 +4,17 @@ import { addToCard } from '../redux/card'
 
 function AddToCardBtn({ product }) {
     const dispatch = useDispatch()
+    const [btn, setBtn] = useState(true)
+    const clickHandle = () => {
+        dispatch(addToCard(product))
+        setBtn(false)
+        setTimeout(() => {
+            setBtn(true)
+        }, 1000);
+    }
     return (
         <>
-            <button className='btn btn-sm btn-success w-100' onClick={() => {dispatch(addToCard(product))}} >Add To Card</button>
+            <button className='btn btn-sm btn-success w-100' style={{transition:"all 1s"}} onClick={clickHandle} >{btn ? "Add to Cart" : "Added !"}</button>
         </>
     )
 }

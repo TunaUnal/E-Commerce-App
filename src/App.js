@@ -3,7 +3,7 @@ import './App.css'
 import Home from "./pages/Home"
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "./redux/products";
+import { setProducts, setCategories } from "./redux/products";
 import { Routes, Route } from "react-router-dom";
 import SingleProductPage from './pages/SingleProductPage';
 import Header from './components/Header';
@@ -15,20 +15,23 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const dispatch = useDispatch();
 
-  /*
-  async function getProducts() {
+  
+  /*async function getProducts() {
     const products = await axios.get("https://fakestoreapi.com/products")
-    return products.data
+    const categories = await axios.get("https://fakestoreapi.com/products/categories")
+    return {data : products.data, categories : categories.data}
   }
 
   useEffect(() => {
     getProducts()
       .then(data => {
-        dispatch(setProducts(data))
-        console.log(data)
+        console.log(data.data)
+        dispatch(setProducts(data.data))
+        console.log(data.categories)
+        dispatch(setCategories(data.categories))
       })
-  }, [])
-  */
+  }, [])*/
+  
 
   return (
     <>

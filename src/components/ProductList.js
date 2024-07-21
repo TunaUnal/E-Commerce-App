@@ -1,43 +1,49 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductItem from './ProductItem'
 import { useDispatch, useSelector } from "react-redux";
 import { setCard, deleteItemFromCard, addToCard } from '../redux/card'
 import { toast } from 'react-toastify';
+import LeftMenu from './LeftMenu';
 function ProductList() {
-	
-	
+
+
 	const dispatch = useDispatch();
-	const card = useSelector(state => state.card);
+	const { card } = useSelector(state => state.card);
 
 	const addToCardHandle = (product) => {
-		dispatch(setCard({id:product.id}));
+		dispatch(setCard({ id: product.id }));
 	};
 
 	useEffect(() => {
-		console.log("updated card: ", card.card);
-		toast.success('🦄 Wow so easy!', {
-			position: "top-right",
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: false,
-			pauseOnHover: true,
-			draggable: false,
-			progress: undefined,
-			theme: "light"
-			});
+		if (card.length != 0) {
+			toast.success('Sepet Güncellendi');
+		}
 	}, [card]);
 
-	const { products } = useSelector((state) => state.products);
+	const { products, categories } = useSelector((state) => state.products);
+
+	const [checked, setChecked] = useState(categories.map(c => { return { category: c, isClick: true } }))
+	const [shownItems, setShownItems] = useState(products)
+
+	useEffect(() => {
+		const isChecked = checked.map(c => {
+			if (c.isClick) {
+				return c.category
+			}
+		})
+		const newdata = (products.filter(p => isChecked.includes(p.category)))
+		setShownItems(newdata)
+	}, [checked])
 
 	return (
 		<>
 			<div className="row">
-				<div className="col-md-3 bg-primary">sol menü</div>
+				<div className="col-md-3"><LeftMenu checked={checked} setChecked={setChecked} /></div>
 				<div className="col-md-9">
 					<div className=" p-3">
 						<ul className='row list-unstyled'>
-							{products.map((product, i) => (
-								<ProductItem  product={product} key={i} />
+							{shownItems.map((product, i) => (
+								<ProductItem product={product} key={i} />
 							))}
 						</ul>
 					</div>
