@@ -3,7 +3,7 @@ import React from 'react'
 function Star({ count, rating }) {
     return (
         <>
-            <p className='star'>
+            <p className='star mb-0'>
 
                 {[...Array(Math.floor(rating))].map((e,i)=><i key={i} className='bi bi-star-fill text-warning'></i>)}
                 {[...Array(5 - Math.floor(rating))].map((e,i)=><i key={i} className='bi bi-star'></i>)}

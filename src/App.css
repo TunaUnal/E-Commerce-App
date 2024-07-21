@@ -14,6 +14,12 @@
   width: 100%
 }
 
+.card-img-top2 {
+  height: 100px;
+  object-fit: contain;
+  width: 100%
+}
+
 .star{
   font-size: small;
 }

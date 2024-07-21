@@ -16,7 +16,7 @@ export default function SingleProductPage() {
     const product = products.find(p => p.id == id)
 
     useEffect(() => {
-      console.log(product)
+      //console.log(product)
     }, [])
     
     return (
@@ -39,7 +39,7 @@ export default function SingleProductPage() {
                             </b>
                         </div>
                         <div className="button">
-                            <AddToCardBtnWithCount id={product.id} />
+                            <AddToCardBtnWithCount product={product} />
                         </div>
                     </div>
                 </div>

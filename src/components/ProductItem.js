@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Star from './Star'
 import { useDispatch, useSelector } from 'react-redux'
 import card, { setCard, deleteItemFromCard, addToCard } from '../redux/card'
+import { Link } from 'react-router-dom'
 import AddToCardBtn from './AddToCardBtn'
 
 function ProductItem({ product }) {
@@ -20,8 +21,8 @@ function ProductItem({ product }) {
                             <span><b>{product.price} $</b></span>
                         </div>
                         <span className="btnGroup mb-1">
-                            <a href={"/product/" + product.id} className="btn btn-primary w-100 mb-2" >View Product</a>
-                            <AddToCardBtn id={product.id} />
+                            <Link to={"/product/" + product.id} className="btn btn-primary w-100 mb-2" >View Product</Link>
+                            <AddToCardBtn product={product} />
                         </span>
                     </div>
                 </div>

@@ -4,26 +4,13 @@ import Home from "./pages/Home"
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "./redux/products";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import SingleProductPage from './pages/SingleProductPage';
 import Header from './components/Header';
 import Card from './pages/Card';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />
-  },
-  {
-    path:"/product/:id",
-    element:<SingleProductPage/>
-  },
-  {
-    path:"/card",
-    element:<Card/>
-  }
-]);
 
 function App() {
   const dispatch = useDispatch();
@@ -45,9 +32,25 @@ function App() {
 
   return (
     <>
-      <Header/>
-      <RouterProvider router={router} />
-    </>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="light"
+/>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<SingleProductPage />} />
+        <Route path="/card" element={<Card />} />
+      </Routes>
+      </>
   )
 }
 

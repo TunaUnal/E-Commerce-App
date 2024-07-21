@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import ProductItem from './ProductItem'
 import { useDispatch, useSelector } from "react-redux";
 import { setCard, deleteItemFromCard, addToCard } from '../redux/card'
-
+import { toast } from 'react-toastify';
 function ProductList() {
 	
 	
@@ -15,6 +15,16 @@ function ProductList() {
 
 	useEffect(() => {
 		console.log("updated card: ", card.card);
+		toast.success('🦄 Wow so easy!', {
+			position: "top-right",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: false,
+			pauseOnHover: true,
+			draggable: false,
+			progress: undefined,
+			theme: "light"
+			});
 	}, [card]);
 
 	const { products } = useSelector((state) => state.products);
