@@ -9,22 +9,12 @@ function Header() {
                         Online React App
                     </Link>
 
-                    <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 px-3 justify-content-center mb-md-0">
-                        <li><Link to="/" className="nav-link px-2 text-secondary">Home</Link></li>
-                        <li><Link to="/card" className="nav-link px-2 text-white">Sepet</Link></li>
-                        <li><a href="#" className="nav-link px-2 text-white">Pricing</a></li>
-                        <li><a href="#" className="nav-link px-2 text-white">FAQs</a></li>
-                        <li><a href="#" className="nav-link px-2 text-white">About</a></li>
+                    <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 px-5 justify-content-center mb-md-0">
+                        <li><Link to="/" className="nav-link px-2 text-white">Home</Link></li>
+                        <li><Link to="/card" className="nav-link px-2 text-white">Card</Link></li>
                     </ul>
 
-                    <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                        <input type="search" className="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"/>
-                    </form>
 
-                    <div className="text-end">
-                        <button type="button" className="btn btn-outline-light me-2">Login</button>
-                        <button type="button" className="btn btn-warning">Sign-up</button>
-                    </div>
                 </div>
         </header>
     )

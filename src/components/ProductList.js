@@ -14,11 +14,7 @@ function ProductList() {
 		dispatch(setCard({ id: product.id }));
 	};
 
-	useEffect(() => {
-		if (card.length != 0) {
-			toast.success('Sepet Güncellendi');
-		}
-	}, [card]);
+		
 
 	const { products, categories } = useSelector((state) => state.products);
 

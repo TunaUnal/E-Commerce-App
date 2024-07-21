@@ -1,2 +1,2 @@
 Heyyo - bu benim çalışmamın rasgele bi hali
-React  ı yeni öğrenmeye başladığım için şuanlık optimizasyon problemlerine takılmıyorum. Gereksiz fonksiyon tanımlamaları, aynı bileşenin birden fazla render olması gibi durumlar olabilir. Önce projeyi bitirip en son optimizasyon için revize edeceğim 
+React  ı yeni öğrenmeye başladığım için şuanlık optimizasyon problemlerine takılmıyorum. Gereksiz fonksiyon tanımlamaları, aynı bileşenin birden fazla render olması gibi durumlar olabilir. Önce projeyi bitirip en son optimizasyon için revize edeceğim .
